@@ -59,17 +59,6 @@ archAffix(){
 
 info_bar(){
     clear
-    echo "#############################################################"
-    echo -e "#                         ${RED}x-ui 面板${PLAIN}                         #"
-    echo -e "# ${GREEN}作者${PLAIN}: MisakaNo の 小破站                                  #"
-    echo -e "# ${GREEN}博客${PLAIN}: https://blog.misaka.rest                            #"
-    echo -e "# ${GREEN}GitHub 项目${PLAIN}: https://github.com/blog-misaka               #"
-    echo -e "# ${GREEN}GitLab 项目${PLAIN}: https://gitlab.com/misakablog                #"
-    echo -e "# ${GREEN}Telegram 频道${PLAIN}: https://t.me/misakablogchannel             #"
-    echo -e "# ${GREEN}Telegram 群组${PLAIN}: https://t.me/+CLhpemKhaC8wZGIx             #"
-    echo -e "# ${GREEN}YouTube 频道${PLAIN}: https://www.youtube.com/@misaka-blog        #"
-    echo "#############################################################"
-    echo ""
     echo -e "操作系统: ${GREEN} ${CMD} ${PLAIN}"
     echo ""
     sleep 2
@@ -81,7 +70,7 @@ checkv4v6(){
 }
 
 check_status(){
-    yellow "正在检查VPS的IP配置环境, 请稍等..." && sleep 1
+    yellow "正在检查VPS的IP环境, 请稍等..." && sleep 1
     WgcfIPv4Status=$(curl -s4m8 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
     WgcfIPv6Status=$(curl -s6m8 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
     if [[ $WgcfIPv4Status =~ "on"|"plus" ]] || [[ $WgcfIPv6Status =~ "on"|"plus" ]]; then
@@ -118,7 +107,7 @@ download_xui(){
         rm -rf /usr/local/x-ui/
     fi
     
-    wget -N --no-check-certificate -O /usr/local/x-ui-linux-$(archAffix).tar.gz https://gitlab.com/misakablog/x-ui/-/raw/main/x-ui-linux-$(archAffix).tar.gz
+    wget -N --no-check-certificate -O /usr/local/x-ui-linux-$(archAffix).tar.gz https://github.com/cym31153/x-ui/blob/main/x-ui-linux-$(archAffix).tar.gz
     if [[ $? -ne 0 ]]; then
         red "下载 x-ui 失败，请确保你的服务器能够连接并下载 GitLab 的文件"
         rm -f install.sh
