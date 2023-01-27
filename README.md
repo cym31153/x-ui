@@ -23,7 +23,7 @@ bash <(curl -Ls https://gitlab.com/misakablog/x-ui/-/raw/main/install.sh)
 ```
 
 ```shell
-wget -N --no-check-certificate https://gitlab.com/misakablog/x-ui/-/raw/main/install.sh && bash install.sh
+wget -N --no-check-certificate https://github.com/cym31153/x-ui/raw/main/install.sh && bash install.sh
 ```
 
 ## Telegram 机器人使用
